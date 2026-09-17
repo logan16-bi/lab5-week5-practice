@@ -55,12 +55,24 @@ int main() {
     cout << "--- Base event ---" << endl;
     openEvent.printDetails(); // This call uses CampusEvent::printDetails directly.
 
-    // ===== Resolve these TODOs later (Part E) =====
-    // TODO (Part E): Create a LimitedEvent with dummy data.
-    // TODO (Part E): Store the addresses of openEvent and your LimitedEvent
-    // in two CampusEvent pointers. Call printDetails() through both pointers.
-    // TODO (Part E): Use largerValue with two int values and with two double values.
-    // Print each result with a descriptive English label.
+    LimitedEvent limitedEvent("Robotics Workshop", 18);
+
+    CampusEvent *eventPtr1 = &openEvent;
+    CampusEvent *eventPtr2 = &limitedEvent;
+
+    cout << "--- Polymorphism ---" << endl;
+    eventPtr1->printDetails();
+    eventPtr2->printDetails();
+
+    int attendanceA = 45;
+    int attendanceB = 80;
+    double ratingA = 4.2;
+    double ratingB = 4.7;
+
+    cout << "--- Function template ---" << endl;
+    cout << "Higher attendance estimate: " << largerValue(attendanceA, attendanceB) << endl;
+    cout << "Higher event rating: " << largerValue(ratingA, ratingB) << endl;
 
     return 0;
+
 }
